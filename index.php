@@ -3,10 +3,13 @@ include './partials/function.php';
 
 if (isset($_GET['pass_lenght']) && ($_GET['pass_lenght'] >= 4)) {
 
+    session_start();
     // Recupero il valore inserito dall'utente
     $pass_lenght = $_GET['pass_lenght'];
 
     $password = generatePassword($pass_lenght);
+
+    $_SESSION['password'] = $password;
 };
 
 ?>
@@ -34,7 +37,7 @@ if (isset($_GET['pass_lenght']) && ($_GET['pass_lenght'] >= 4)) {
         </div>
         <div>
 
-            <h5 class="p-4">La tua password è: <?php echo ($_GET['pass_lenght'] <= 3) ? 'La password che hai inserito è troppo corta!' : $password ?></h5>
+            <h5 class="p-4">La tua password è: <?php echo ($_GET['pass_lenght'] <= 3) ? 'La password che hai inserito è troppo corta!' : header('Location: ./redirect.php') ?></h5>
         </div>
     </main>
 </body>
