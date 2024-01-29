@@ -1,5 +1,5 @@
 <?php
-function generatePassword($pass_lenght)
+function generatePassword($pass_length)
 {
     // Richiamo la funzione dei 4 caratteri obbligatori e le assegno ad una variabile
     $required4 = random4();
@@ -14,7 +14,7 @@ function generatePassword($pass_lenght)
     $password = [];
 
 
-    for ($i = 0; $i < ($pass_lenght - 4); $i++) {
+    for ($i = 0; $i < ($pass_length - 4); $i++) {
         $password[] = $allChar[random_int(0, $allCharLeng)];
     };
 

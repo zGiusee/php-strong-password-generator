@@ -1,13 +1,13 @@
 <?php
 include './partials/function.php';
 
-if (isset($_GET['pass_lenght']) && ($_GET['pass_lenght'] >= 4)) {
+if (isset($_GET['pass_length']) && ($_GET['pass_length'] >= 4)) {
 
     session_start();
     // Recupero il valore inserito dall'utente
-    $pass_lenght = $_GET['pass_lenght'];
+    $pass_length = $_GET['pass_length'];
 
-    $password = generatePassword($pass_lenght);
+    $password = generatePassword($pass_length);
 
     $_SESSION['password'] = $password;
 };
@@ -30,14 +30,14 @@ if (isset($_GET['pass_lenght']) && ($_GET['pass_lenght'] >= 4)) {
         <h3 class="p-4">Generatore di password sicure, inserisci qua sotto la lunghezza desiderata per la password</h3>
         <div class="p-4">
             <form action="./index.php" method="get">
-                <label for="pass_lenght">lunghezza desiderata:</label>
-                <input type="text" name="pass_lenght" id="pass_lenght">
+                <label for="pass_length">lunghezza desiderata:</label>
+                <input type="text" name="pass_length" id="pass_length">
                 <button class="mx-2" type="submit">Genera la tua password!</button>
             </form>
         </div>
         <div>
 
-            <h5 class="p-4">La tua password è: <?php echo ($_GET['pass_lenght'] <= 3) ? 'La password che hai inserito è troppo corta!' : header('Location: ./redirect.php') ?></h5>
+            <h5 class="p-4">La tua password è: <?php echo ($_GET['pass_length'] <= 3) ? 'La password che hai inserito è troppo corta!' : header('Location: ./redirect.php') ?></h5>
         </div>
     </main>
 </body>
